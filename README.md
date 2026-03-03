@@ -73,6 +73,9 @@ set -g @mode_indicator_sync_prompt ' SYNC '
 # prompt to display when tmux is in normal mode
 set -g @mode_indicator_empty_prompt ' TMUX '
 
+# prompt to display when tmux is in a user's key table using `switch-client -T <key-table>`
+set -g @mode_indicator_keytable_prompt '#{client_key_table}'
+
 # style values for prefix prompt
 set -g @mode_indicator_prefix_mode_style 'bg=blue,fg=black'
 
@@ -84,6 +87,9 @@ set -g @mode_indicator_sync_mode_style 'bg=red,fg=black'
 
 # style values for empty prompt
 set -g @mode_indicator_empty_mode_style 'bg=cyan,fg=black'
+
+# style values for key table prompt
+set -g @mode_indicator_keytable_mode_style 'bg=magenta,fg=black'
 ```
 
 ### Custom Indicator
