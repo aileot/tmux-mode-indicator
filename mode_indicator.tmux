@@ -42,8 +42,16 @@ init_tmux_mode_indicator() {
     custom_style="#(tmux show-option -qv $custom_mode_style_config)"
 
   local -r \
-    mode_prompt="#{?#{!=:$custom_prompt,},$custom_prompt,#{?client_prefix,$prefix_prompt,#{?pane_in_mode,$copy_prompt,#{?pane_synchronized,$sync_prompt,$empty_prompt}}}}" \
-    mode_style="#{?#{!=:$custom_style,},#[$custom_style],#{?client_prefix,$prefix_style,#{?pane_in_mode,$copy_style,#{?pane_synchronized,$sync_style,$empty_style}}}}"
+    mode_prompt="\
+#{?#{!=:$custom_prompt,},$custom_prompt,\
+#{?client_prefix,$prefix_prompt,\
+#{?pane_in_mode,$copy_prompt,\
+#{?pane_synchronized,$sync_prompt,$empty_prompt}}}}" \
+    mode_style="\
+#{?#{!=:$custom_style,},#[$custom_style],\
+#{?client_prefix,$prefix_style,\
+#{?pane_in_mode,$copy_style,\
+#{?pane_synchronized,$sync_style,$empty_style}}}}"
 
   local -r mode_indicator="#[default]$mode_style$mode_prompt#[default]"
 
